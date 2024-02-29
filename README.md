@@ -12,45 +12,30 @@ Add this to `dependencies` in your app's `pubspec.yaml`
 easypaisa_flutter : latest_version
 ```
 
-## :hammer: Initialization
 
+## :hammer: Initialization
+initialize in main.dart
 ```dart
 EasypaisaFlutter.initialize(
- 'username',
- 'password',
-'storeId',
- true/*is testing account or not*/,
- AccountType.MA/*Merchant account type either Mobile account or OTC */
+ 'username', //merchant account username
+ 'password', //merchant account password
+'storeId', //merchant storeId
+ true, //is testing account or not
+ AccountType.MA, //Merchant account type either Mobile account or OTC 
 );
 ```
 
+## : Usage
 > :pushpin: Note :
 >
-> You can use this singleton (instance) 
-> or 
-> Create your own  
-> if you want to create different iFrames or integrations
-```dart
-final PaymobPakistan paymobPakistan = PaymobPakistan();
-  paymobPakistan.initialize(
-  apiKey: "", 
-  jazzcashIntegrationId: 123123, 
-  easypaisaIntegrationID: 123123,  
-  integrationID: 123456, 
-  iFrameID: 123456, 
-);
-```
-
-## :bookmark: Usage
+> All requested perameters are String type 
 
 ```dart
-final PaymobResponse? response = await PaymobPakistan.instance.pay(
-  context: context,
-  currency: "PKR",
-  paymentType: PaymentType.card, // or you can User paymentType: PaymentType.jazzcash OR PaymentType.easypaisa
-  amountInCents: "50000", // 500 PKR
-  onPayment: (response) => setState(() => this.response = response), // Optional
-)
+ Response response = await EasypaisaFlutter.requestPayment(
+      'amount', //amount that you wanna charge
+      'account number', //user account number
+      'email', //user email address
+    );
 ```
 
 ## :incoming_envelope: PaymobResponse
