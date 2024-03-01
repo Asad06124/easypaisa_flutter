@@ -28,8 +28,8 @@ EasypaisaFlutter.initialize(
 ## : Usage
 > :pushpin: Note :
 >
-> All requested perameters are String type
-## : Make a payment
+> All requested perameters are String type 
+   ## : Make a payment
 ```dart
  Response response = await EasypaisaFlutter.requestPayment(
       'amount', //amount that you wanna charge
@@ -56,7 +56,7 @@ print(response.body); // to print response body
 
 
 
-## : Inquire previous payment
+   ## : Inquire previous payment
 ```dart
  Response response = await EasypaisaFlutter.requestPaymentStatus(
       'order ID', //order id recieved in response
@@ -92,7 +92,7 @@ print(response.body); // to print response body
 
 
 
-## :
+## : 
 
 
 
@@ -101,4 +101,5 @@ print(response.body); // to print response body
 If you find this package useful, you can support it for free by giving it a thumbs up at the top of this page. Here's another option to support the package:
 
 ## <p align='center'><a href="https://www.buymeacoffee.com/asadbalqanw"><img src="https://img.buymeacoffee.com/button-api/?text=Buy me a coffee&emoji=&slug=jonhanson&button_colour=5F7FFF&font_colour=ffffff&font_family=Cookie&outline_colour=000000&coffee_colour=FFDD00" width="450" height="200"></a></p>
+
 

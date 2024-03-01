@@ -19,11 +19,11 @@ class EasypaisaFlutter {
   }
 
   static Future<Response> requestPayment(
-  {required String amount,
-    required String accountNo,
-    required String email,}
+    String amount,
+    String accountNo,
+    String email,
   ) async {
-    if (username == null || password == null||storeId==null ) {
+    if (username == null || password == null) {
       throw Exception('Username and password must be initialized first.');
     }
 
@@ -54,12 +54,10 @@ class EasypaisaFlutter {
     String liveTransactionUrl =
         'https://easypay.easypaisa.com.pk/easypay-service/rest/v4/$endUrl';
 
-    String url = isSandbox ? sandBoxTransactionUrl : liveTransactionUrl;
-
     var jsonBody = json
         .encode(accountType == AccountType.MA ? requestBodyMA : requestBodyOTC);
     var response = await post(
-      Uri.parse(url),
+      Uri.parse(isSandbox ? sandBoxTransactionUrl : liveTransactionUrl),
       headers: {
         "Credentials": base64.encode(utf8.encode('$username:$password')),
         "Content-Type": "application/json",
@@ -68,8 +66,6 @@ class EasypaisaFlutter {
     );
 
     if (response.statusCode == 200) {
-      print(jsonBody);
-      print(url);
       print("Transaction initiated successfully: ${response.body}");
       return response;
     } else {
@@ -79,8 +75,8 @@ class EasypaisaFlutter {
   }
 
   static Future<Response> requestPaymentStatus(
+    bool isSandbox,
     String orderId,
-    String accountNo,
   ) async {
     if (username == null || password == null || storeId == null) {
       throw Exception('Username and password must be initialized first.');
@@ -89,7 +85,7 @@ class EasypaisaFlutter {
     var requestBody = {
       "orderId ": orderId,
       "storeId": storeId,
-      "accountNum": accountNo,
+      "accountNum": "654123987",
     };
 
     String sandBoxTransactionUrl =
