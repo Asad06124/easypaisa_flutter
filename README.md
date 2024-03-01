@@ -29,7 +29,7 @@ EasypaisaFlutter.initialize(
 > :pushpin: Note :
 >
 > All requested perameters are String type 
-
+   ## : Make a payment
 ```dart
  Response response = await EasypaisaFlutter.requestPayment(
       'amount', //amount that you wanna charge
@@ -45,31 +45,55 @@ print(response.body); // to print response body
 
    ```dart
 
-{"orderId":"1709272404426","storeId":"storeId","transactionDateTime":"01/03/2024 10:53 AM","responseCode":"0001","responseDesc":"your response descriptions"}
+{
+"orderId":"1709272404426",
+"storeId":"storeId",
+"transactionDateTime":"01/03/2024 10:53 AM",
+"responseCode":"0001",
+"responseDesc":"your response descriptions"}
 
 ```
 
-## :incoming_envelope: PaymobResponse
-
-| Variable      | Type    | Description          |
-| ------------- |---------| -------------------- |
-| success       | bool    | Indicates if the transaction was successful or not |
-| transactionID | String? | The ID of the transaction |
-| responseCode  | String? | The response code for the transaction |
-| message       | String? | A brief message describing the transaction |
 
 
-## :test_tube: Testing Cards
+   ## : Inquire previous payment
+```dart
+ Response response = await EasypaisaFlutter.requestPaymentStatus(
+      'order ID', //order id recieved in response
+      'account number', //user account number
+    );
 
-#### :white_check_mark: Successful payment
 
-| Variable     | Description      |
-|--------------|------------------|
-| Card Number  | 5123456789012346 |
-| Expiry Month | 12               |
-| Expiry Year  | 25               |
-| CVV          | 123              |
-| Name         | Test Account     |
+
+print(response.body); // to print response body
+```
+## : Response
+
+   ```dart
+
+{
+"orderId”: "order Id",
+"accountNum" : "654123987",
+"storeId" : store Id,
+"storeName" : "PG Store 1",
+"paymentToken" : "40931912",
+"transactionStatus" : "PENDING",
+"transactionAmount" : 12,
+"transactionDateTime" : "09/08/2018 10:04 PM",
+"paymentTokenExpiryDateTime" : "09/07/2019 05:06 PM",
+"msisdn" : "03458508726",
+"paymentMode" : "MA",
+"responseCode " : "0000",
+"responseDesc" : "SUCCESS"
+}
+
+
+```
+
+
+
+## : 
+
 
 
 ## Support the package
