@@ -36,6 +36,17 @@ EasypaisaFlutter.initialize(
       'account number', //user account number
       'email', //user email address
     );
+
+
+
+print(response.body); // to print response body
+```
+## : Response
+
+   ```dart
+
+{"orderId":"1709272404426","storeId":"storeId","transactionDateTime":"01/03/2024 10:53 AM","responseCode":"0001","responseDesc":"your response descriptions"}
+
 ```
 
 ## :incoming_envelope: PaymobResponse
@@ -61,10 +72,10 @@ EasypaisaFlutter.initialize(
 | Name         | Test Account     |
 
 
-## :Support the package (optional)
+## Support the package
 
 If you find this package useful, you can support it for free by giving it a thumbs up at the top of this page. Here's another option to support the package:
 
-## <p align='center'><a href="https://www.buymeacoffee.com/asadbalqanw"><img src="https://img.buymeacoffee.com/button-api/?text=Buy me a coffee&emoji=&slug=jonhanson&button_colour=5F7FFF&font_colour=ffffff&font_family=Cookie&outline_colour=000000&coffee_colour=FFDD00" width="400" height="150"></a></p>
+## <p align='center'><a href="https://www.buymeacoffee.com/asadbalqanw"><img src="https://img.buymeacoffee.com/button-api/?text=Buy me a coffee&emoji=&slug=jonhanson&button_colour=5F7FFF&font_colour=ffffff&font_family=Cookie&outline_colour=000000&coffee_colour=FFDD00" width="450" height="200"></a></p>
 
 
