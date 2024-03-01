@@ -61,17 +61,8 @@ EasypaisaFlutter.initialize(
 | Name         | Test Account     |
 
 
-#### :negative_squared_cross_mark: Declined payment
+#### 4. Support the package (optional)
 
-Change cvv to 111 or expiry year to 20
+If you find this package useful, you can support it for free by giving it a thumbs up at the top of this page. Here's another option to support the package:
 
-##  Credits
-
-> All API Credits goes to [Paymob Pakistan](https://paymob.pk)
-
-> :pushpin: Note :
-> 
-> Visit [Paymob Pakistan](https://paymob.pk) to get your PayMob account for accepting Digital Payments on your Flutter Application.
-> May be you have to contact paymob support to activate your test card 
-
-
+<p align='center'><a href="https://www.buymeacoffee.com/asadbalqanw"><img src="https://img.buymeacoffee.com/button-api/?text=Buy me a coffee&emoji=&slug=jonhanson&button_colour=5F7FFF&font_colour=ffffff&font_family=Cookie&outline_colour=000000&coffee_colour=FFDD00"></a></p>
