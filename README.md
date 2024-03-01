@@ -1,39 +1,104 @@
-<!--
-This README describes the package. If you publish this package to pub.dev,
-this README's contents appear on the landing page for your package.
+# easypaisa_flutter
 
-For information about how to write a good package README, see the guide for
-[writing package pages](https://dart.dev/guides/libraries/writing-package-pages).
+Easily integrate easypaisa payment option in your Flutter app.
 
-For general information about developing packages, see the Dart guide for
-[creating packages](https://dart.dev/guides/libraries/create-library-packages)
-and the Flutter guide for
-[developing packages and plugins](https://flutter.dev/developing-packages).
--->
+<!-- ![Example](https://github.com/Asad06124/easypaisa_flutter/tree/main/example) -->
 
-TODO: Put a short description of the package here that helps potential users
-know whether this package might be useful for them.
+## :rocket: Installation
 
-## Features
+Add this to `dependencies` in your app's `pubspec.yaml`
 
-TODO: List what your package can do. Maybe include images, gifs, or videos.
-
-## Getting started
-
-TODO: List prerequisites and provide or point to information on how to
-start using the package.
-
-## Usage
-
-TODO: Include short and useful examples for package users. Add longer examples
-to `/example` folder.
-
-```dart
-const like = 'sample';
+```yaml
+easypaisa_flutter : latest_version
 ```
 
-## Additional information
 
-TODO: Tell users more about the package: where to find more information, how to
-contribute to the package, how to file issues, what response they can expect
-from the package authors, and more.
+## :hammer: Initialization
+initialize in main.dart
+```dart
+EasypaisaFlutter.initialize(
+ 'username', //merchant account username
+ 'password', //merchant account password
+'storeId', //merchant storeId
+ true, //is testing account or not
+ AccountType.MA, //Merchant account type either Mobile account or OTC 
+);
+```
+
+## : Usage
+> :pushpin: Note :
+>
+> All requested perameters are String type
+## : Make a payment
+```dart
+ Response response = await EasypaisaFlutter.requestPayment(
+      'amount', //amount that you wanna charge
+      'account number', //user account number
+      'email', //user email address
+    );
+
+
+
+print(response.body); // to print response body
+```
+## : Response
+
+   ```dart
+
+{
+"orderId":"1709272404426",
+"storeId":"storeId",
+"transactionDateTime":"01/03/2024 10:53 AM",
+"responseCode":"0001",
+"responseDesc":"your response descriptions"}
+
+```
+
+
+
+## : Inquire previous payment
+```dart
+ Response response = await EasypaisaFlutter.requestPaymentStatus(
+      'order ID', //order id recieved in response
+      'account number', //user account number
+    );
+
+
+
+print(response.body); // to print response body
+```
+## : Response
+
+   ```dart
+
+{
+"orderId”: "order Id",
+"accountNum" : "654123987",
+"storeId" : store Id,
+"storeName" : "PG Store 1",
+"paymentToken" : "40931912",
+"transactionStatus" : "PENDING",
+"transactionAmount" : 12,
+"transactionDateTime" : "09/08/2018 10:04 PM",
+"paymentTokenExpiryDateTime" : "09/07/2019 05:06 PM",
+"msisdn" : "03458508726",
+"paymentMode" : "MA",
+"responseCode " : "0000",
+"responseDesc" : "SUCCESS"
+}
+
+
+```
+
+
+
+## :
+
+
+
+## Support the package
+
+If you find this package useful, you can support it for free by giving it a thumbs up at the top of this page. Here's another option to support the package:
+
+## <p align='center'><a href="https://www.buymeacoffee.com/asadbalqanw"><img src="https://img.buymeacoffee.com/button-api/?text=Buy me a coffee&emoji=&slug=jonhanson&button_colour=5F7FFF&font_colour=ffffff&font_family=Cookie&outline_colour=000000&coffee_colour=FFDD00" width="450" height="200"></a></p>
+

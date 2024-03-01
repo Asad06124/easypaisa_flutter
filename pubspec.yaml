@@ -1,7 +1,7 @@
 name: easypaisa_flutter
-description: "A new Flutter project."
+description: "A Flutter Package to integrate Easypaisa payment gateway in your flutter app with ease."
 version: 1.0.0
-homepage:
+homepage: https://github.com/Asad06124/easypaisa_flutter.git
 
 environment:
   sdk: '>=3.3.0 <4.0.0'
