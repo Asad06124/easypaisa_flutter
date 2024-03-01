@@ -30,9 +30,6 @@ class MyApp extends StatelessWidget {
   }
 }
 
-
-
-
 class PaymentScreen extends StatefulWidget {
   const PaymentScreen({super.key});
 
@@ -63,7 +60,8 @@ class _PaymentScreenState extends State<PaymentScreen> {
               border: OutlineInputBorder(),
             ),
           ),
-          SizedBox(height: 16.0), TextFormField(
+          SizedBox(height: 16.0),
+          TextFormField(
             controller: paymentAmountController,
             decoration: InputDecoration(
               labelText: 'Amount',
@@ -78,10 +76,10 @@ class _PaymentScreenState extends State<PaymentScreen> {
               border: OutlineInputBorder(),
             ),
           ),
-
           ElevatedButton(
             style: ElevatedButton.styleFrom(
-              foregroundColor: Colors.white, backgroundColor: primaryColor,
+              foregroundColor: Colors.white,
+              backgroundColor: primaryColor,
               elevation: 4.0,
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(8.0),
@@ -112,8 +110,6 @@ class _PaymentScreenState extends State<PaymentScreen> {
               } else {
                 print("On Tapped");
                 makePayment();
-
-
               }
             },
             child: Text(
@@ -127,6 +123,7 @@ class _PaymentScreenState extends State<PaymentScreen> {
       ),
     );
   }
+
   void makePayment() async {
     Response response = await EasypaisaFlutter.requestPayment(
       amount: '${paymentAmountController.text.trim().toString()}',
@@ -134,8 +131,5 @@ class _PaymentScreenState extends State<PaymentScreen> {
       email: '${emailController.text.trim().toString()}',
     );
     print(response.body);
-
-
   }
 }
-

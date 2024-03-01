@@ -1,5 +1,17 @@
-enum AccountType{OTC, MA}
+/// Enumeration representing the type of Easypaisa account.
 
+enum AccountType {
+  /// Over the Counter type.
+  OTC,
+
+  /// Mobile Account type.
+
+  MA
+}
+
+/// Generates an expiry token for the Easypaisa request.
+///
+/// This method should be implemented based on the specific requirements for token generation.
 String generateExpiryToken() {
   DateTime now = DateTime.now().add(const Duration(minutes: 3));
 
